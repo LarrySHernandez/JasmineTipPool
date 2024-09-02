@@ -62,8 +62,11 @@ describe('Testing functionality of updateServerTable', function(){
     it('should have the same amount of tr as the amount of servers in allServers object', function(){
       let values = Object.keys(allServers);
       let allTr = Array.from(document.getElementsByTagName('tr'));
-
-      let allTrFiltered = allTr.slice(2, allTr.length - 2);
+      let allTrFiltered = allTr.filter((tr) => { 
+        if(typeof tr.getAttribute('id') === 'string'){
+            return 'server'.indexOf(tr.getAttribute('id').slice(0, 5)) !== -1;
+        };
+      });
       expect(allTrFiltered.length).toBe(values.length);
     });
 
