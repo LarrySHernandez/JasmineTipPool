@@ -13,11 +13,11 @@ describe('testing functionality for sumPaymentTotal', function(){
     });
 
     afterEach(function(){
-        document.getElementById('billAmt').value = '';
-        document.getElementById('tipAmt').value = '';
-        paymentTbody.innerHTML = '';
-        document.querySelector('#summaryTable tbody').innerHTML = '';
-
+        summaryTds[0].innerHTML = '';
+        summaryTds[1].innerHTML = '';
+        summaryTds[2].innerHTML = '';
+        paymentTbody.innerText = '';
+        allPayments = {};
     });
 
 });
@@ -28,7 +28,6 @@ describe('testing functionality for calculateTipPercent', function(){
     });
     afterEach(function(){
         paymentTbody.innerHTML = '';
-        document.querySelector('#summaryTable tbody').innerHTML = '';
     });
 });
 
@@ -47,7 +46,7 @@ describe('testing functionality for appendTd', function(){
         expect(arrFiltered).toBe('$400$5040%');
     })
     afterEach(function(){
-        document.querySelector('#summaryTable tbody').innerHTML = '';
         paymentTbody.innerHTML = '';
+        allPayments = {};
     });
 });
